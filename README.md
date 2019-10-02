@@ -1,2 +1,3 @@
-"# Bigdata_project" 
-"# Bigdata_project" 
+# 팀명: 죽음의 불사조
+# 팀원: 오진영, 이희철, 최준혁
+
