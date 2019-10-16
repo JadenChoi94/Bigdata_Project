@@ -6,31 +6,35 @@ public class GenDrivingLogThread extends Thread{
 
 	private String date;
 	PrintWriter printWriter;
-	SmartMeterReal smartmeterreal;
+	CarDriving carDriving;
 
-	public GenDrivingLogThread(String MeterNum, int  customerno, String mac , PrintWriter printWriter) {
+	public GenDrivingLogThread( String date, String carNum, boolean isAdd, PrintWriter printWriter) {
 		this.date = date;
+		carDriving = new CarDriving(carNum, isAdd, randomRange(0,5));
 		this.printWriter = printWriter;
-		
-		 smartmeterreal =  new SmartMeterReal( MeterNum , customerno, 0,  mac );		
-	}	
+	}
+	
 
 	@Override    
 	public void run() {
-			int count = 24 * 60 * 60;	
-//			printWriter.println( "Driver Status Information, Time, MeterNum, MacAdd, UserId" );
+			int count = 24 * 60 * 60;
+	
+//			printWriter.println( "Driver Status Infomation,CarNum,AccStep,BrkStep,WheelStep,DirLightStep,Speed,AreaNum" );
 			
 			try {
-				for(int i = 0; i <= count; i += 1) { // 1초 간격					
+				for(int i = 0; i <= count; i += 1) { // 1초 간격
+					
 					synchronized( printWriter ){
 						printWriter.println(
 							date +
-							getSecToTime(i)						 + "," +
-							smartmeterreal.getSmartmeterno() 	 + "," +
-							smartmeterreal.getCustomno()		 + "," +
-							smartmeterreal.getKw() + "," +
-							smartmeterreal.getMacaddr()
-							);
+							getSecToTime(i)				 + "," +
+							carDriving.getCarNum()		 + "," +
+							carDriving.getAccStep()		 + "," +
+							carDriving.getBrkStep()		 + "," +
+							carDriving.getWheelStep()	 + "," +
+							carDriving.getDirLightStep() + "," +
+							carDriving.getSpeed()		 + "," +
+							carDriving.getAreaNum() );
 					}
 					
 					sleep(1 * 100);
@@ -41,7 +45,6 @@ public class GenDrivingLogThread extends Thread{
 			}
 	}
 
-	
 	public String getSecToTime(int inSec) {
 		String time = String.valueOf(inSec/3600);
 		if(time.length() == 1) time = "0" + time;
