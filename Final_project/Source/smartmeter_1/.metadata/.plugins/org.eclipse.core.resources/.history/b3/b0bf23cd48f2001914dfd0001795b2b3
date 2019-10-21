@@ -1,0 +1,173 @@
+package com.bigdata2017.smartcar;
+
+import java.text.DecimalFormat;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Random;
+import java.util.Iterator;
+
+public class SmartMeterReal
+{
+	private  String smartmeterno;
+	private  int customno; 
+	private  double kw;
+	private  String macaddr;
+	private  Random r =  new Random();
+	public SmartMeterReal(){}
+	
+	public SmartMeterReal(String smartmeterno, int customno, double kw, String macaddr) {
+		super();
+		this.smartmeterno = smartmeterno;
+		this.customno = customno;
+		this.kw = kw;
+		this.macaddr = macaddr;
+	}
+	
+	public String getSmartmeterno(int num)
+	{		
+		String[] carNumPrefix = {"A", "B" , "C" , "D" , "E" , "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}; 
+		String prefixNum = carNumPrefix[randomRange(0, 25)] ;
+
+		DecimalFormat format = new DecimalFormat("0000");
+		String carNum = format.format(num);
+
+		return smartmeterno = prefixNum + carNum;
+		
+	}
+	public void setSmartmeterno(String smartmeterno) {
+		this.smartmeterno = smartmeterno;
+	}
+	
+	public int randomRange(int n1, int n2) {  
+		return  (int)(Math.random() * (n2 - n1 + 1)) + n1;
+	} 
+	
+	public int getCustomno() {
+		return customno;
+	}
+	
+	public void setCustomno(int customno) {
+		this.customno = customno;
+	}
+	
+	
+	public double getKw(String date ) { //가중치 추가
+		Random r      = new Random();		
+		int familyCount ;
+		String month  = date.substring(4,5);		
+		double monthnum = Integer.parseInt(month);			
+//		(표준편차 * r.nextGaussian()) + 평균	
+		
+		double family_value = 0;
+		double famNo = (double)((Math.random()*100+1));
+		
+		//1명일때
+        if(famNo >=1 && famNo <= 14.59) {
+        	family_value = ((11.16407*r.nextGaussian()) + 24.41717263)/(30*24);
+        }
+        //2명일때
+        else if (famNo > 14.59 && famNo <= 43.05){
+        	family_value = ((16.39198*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //3명일때
+        else if (famNo > 43.05 && famNo <= 67.17){
+        	family_value = ((16.88710284*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //4명 일때
+        else if (famNo > 67.17 && famNo <= 92.44){
+        	family_value = ((17.90949469*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //5명 일때
+        else if (famNo > 92.44 && famNo <= 98.84){
+        	family_value = ((19.48348174*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //6명 일때
+        else if (famNo > 98.84 && famNo <= 99.74){
+        	family_value = ((18.54887075*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //7명 일때
+        else if (famNo > 99.74 && famNo <= 99.96){
+        	family_value = ((19.36022164*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //8명 일때
+        else if (famNo > 99.96 && famNo < 99.99) {
+        	family_value = ((25.99111153*r.nextGaussian()) + 24.41717263)/30;
+        }
+        //9명 일때
+        else {
+        	family_value = ((74.01822053*r.nextGaussian()) + 24.41717263)/30;
+        }
+		
+
+		
+		
+		
+		return Math.abs( r.nextDouble()% 1.28 + 0.4 ) * ( monthnum + family_value );			
+		/** 
+		 * 가족수와 달 별로 가중치를 더 부가하고 싶다.
+		 * */	
+		
+//		double family_value  = 0;
+//		if(familynum == 1){
+//			if(monthnum == 1){
+//				family_value = ;
+//			}else if(monthnum == 2){
+//				family_value = ;
+//			}else if(monthnum == 3){
+//				family_value = ;
+//			}else if(monthnum == 4){
+//				family_value = ;
+//			}else if(monthnum == 5){
+//				family_value = ;
+//			}else if(monthnum == 6){
+//				family_value = ;
+//			}else if(monthnum == 7){
+//				family_value = ;
+//			}else if(monthnum == 8){
+//				family_value = ;
+//			}else if(monthnum == 9){
+//				family_value = ;
+//			}else if(monthnum == 10){
+//				family_value = ;
+//			}else if(monthnum == 11){
+//				family_value = ;
+//			}else {
+//				family_value = ;
+//			}
+//		}
+
+	}
+
+	
+	
+	public void setKw(double kw) {
+		this.kw = kw;
+	}
+	public String getMacaddr() {
+		return this.genMacAdd();
+	}
+	public void setMacaddr(String macaddr) {
+		this.macaddr = macaddr;
+	}
+	
+	public String genMacAdd(){
+	    Random rand = new Random();
+	    byte[] macAddr = new byte[6];
+	    rand.nextBytes(macAddr);
+
+	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
+
+	    StringBuilder sb = new StringBuilder(18);
+	    for(byte b : macAddr){
+	        if(sb.length() > 0)
+	            sb.append(":");
+	        sb.append(String.format("%02x", b));
+	    }
+	   
+	    return sb.toString();
+	}
+	
+
+	
+
+}
