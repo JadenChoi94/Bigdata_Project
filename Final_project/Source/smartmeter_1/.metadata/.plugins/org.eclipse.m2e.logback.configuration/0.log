@@ -512,3 +512,211 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 2019-10-21 10:45:06,158 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
 2019-10-21 10:45:06,158 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-21 10:45:06,158 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:33:38,846 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:33:38,848 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:33:38,850 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:33:38,850 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:34:29,467 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:34:29,467 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:34:29,468 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:34:29,468 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:35:14,929 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:35:14,929 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:35:14,930 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:35:14,930 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:35:54,347 [Worker-25] WARN  o.e.r.models.ModelRepository - Failed to download org.eclipse.recommenders:index::zip:0.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not find artifact org.eclipse.recommenders:index:zip:0.0.0-SNAPSHOT in models (http://download.eclipse.org/recommenders/models/neon/)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find artifact org.eclipse.recommenders:index:zip:0.0.0-SNAPSHOT in models (http://download.eclipse.org/recommenders/models/neon/)
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:39) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2019-10-22 14:36:37,344 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:36:37,344 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:36:37,345 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:36:37,345 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:39:39,016 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:39:39,016 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:39:39,017 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:39:39,017 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:39:53,786 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:39:53,786 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:39:53,787 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:39:53,787 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:44:22,026 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:44:22,026 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:44:22,026 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:44:22,027 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 14:50:45,239 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:50:45,240 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 14:50:45,241 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 14:50:45,241 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:09:37,624 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:09:37,625 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:09:37,626 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:09:37,626 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:13:09,086 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:13:09,087 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:13:09,087 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:13:09,088 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:14:17,864 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:14:17,864 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:14:17,864 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:14:17,865 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:14:38,863 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:14:38,863 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:14:38,864 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:14:38,864 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:14:49,508 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:14:49,508 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:14:49,509 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:14:49,509 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:17:02,153 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:17:02,154 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:17:02,154 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:17:02,154 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:17:04,085 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:17:04,086 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:17:04,086 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:17:04,086 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:17:08,123 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:17:08,124 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:17:08,125 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:17:08,125 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:18:58,636 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:18:58,636 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:18:58,637 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:18:58,637 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:20:14,881 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:20:14,881 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:20:14,882 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:20:14,882 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:23:31,246 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:23:31,246 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:23:31,247 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:23:31,247 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:25:13,401 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:25:13,402 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:25:13,402 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:25:13,402 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:25:39,960 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:25:39,960 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:25:39,961 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:25:39,961 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:25:42,698 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:25:42,699 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:25:42,699 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:25:42,700 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:28:29,020 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:28:29,021 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:28:29,021 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:28:29,021 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:28:51,471 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:28:51,471 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:28:51,472 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:28:51,473 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:31:06,965 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:31:06,965 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:31:06,966 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:31:06,966 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:31:39,032 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:31:39,032 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:31:39,033 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:31:39,033 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:31:42,414 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:31:42,414 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:31:42,414 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:31:42,414 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:33:31,219 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:33:31,220 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:33:31,220 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:33:31,220 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:33:51,790 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:33:51,791 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:33:51,791 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:33:51,791 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:37:41,671 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:37:41,671 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:37:41,672 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:37:41,672 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:37:42,720 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:37:42,720 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:37:42,721 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:37:42,721 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:37:45,830 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:37:45,831 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:37:45,831 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:37:45,831 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:38:01,063 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:38:01,063 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:38:01,064 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:38:01,064 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:42:50,032 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:42:50,032 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:42:50,032 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:42:50,032 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:46:58,546 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:46:58,546 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:46:58,547 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:46:58,547 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:47:33,589 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:47:33,589 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:47:33,589 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:47:33,589 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:49:05,351 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:49:05,351 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:49:05,352 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:49:05,352 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:49:21,950 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:49:21,951 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:49:21,951 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:49:21,951 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:50:15,550 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:50:15,550 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:50:15,550 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:50:15,550 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:51:43,920 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:51:43,920 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:51:43,920 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:51:43,920 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:53:12,763 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:53:12,763 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:53:12,764 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:53:12,764 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:53:58,831 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:53:58,832 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:53:58,832 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:53:58,832 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:56:01,539 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:56:01,539 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:56:01,540 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:56:01,540 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:58:35,248 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:58:35,249 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:58:35,249 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:58:35,249 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:59:17,420 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:59:17,420 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:59:17,421 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:59:17,421 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-22 15:59:41,982 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:59:41,982 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-22 15:59:41,982 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-22 15:59:41,982 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+2019-10-23 11:26:49,373 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 11:26:49,416 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
+2019-10-23 11:26:49,431 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-23 11:26:49,432 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources

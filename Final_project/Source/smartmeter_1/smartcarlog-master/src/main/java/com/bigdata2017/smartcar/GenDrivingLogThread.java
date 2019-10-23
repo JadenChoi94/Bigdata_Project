@@ -3,13 +3,14 @@ package com.bigdata2017.smartcar;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 public class GenDrivingLogThread extends Thread{
 
 	private String date;
 	PrintWriter printWriter;
 	SmartMeterReal smartmeterreal;
-
+		
 	public GenDrivingLogThread(String MeterNum, int  customerno, String mac , PrintWriter printWriter) {
 		
 		this.date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
@@ -23,14 +24,14 @@ public class GenDrivingLogThread extends Thread{
 	public void run() {
 			int count = 24 * 60 * 60;	
 //			printWriter.println( "SmartMeter Status Information, Time, MeterNum, Customno, Kw, MacAdd" );
-			
+			Random rand = new Random();
 			try {
 				for(int i = 0; i <= count; i += 1) { // 1초 간격					
 					synchronized( printWriter ){
 						printWriter.println(
 							date +
 							getSecToTime(i)						 + "," +
-							smartmeterreal.getSmartmeterno((int)(Math.random()%100)+1) 	 + "," +
+							smartmeterreal.getSmartmeterno((int)((Math.abs(rand.nextInt())%100+1))) 	 + "," +
 							smartmeterreal.getCustomno()		 + "," +
 							smartmeterreal.getKw(date)			 + "," +
 							smartmeterreal.getMacaddr()

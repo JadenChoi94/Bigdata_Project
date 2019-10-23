@@ -1,0 +1,67 @@
+package com.bigdata2017.smartcar;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+public class CarStatus {
+	private String time;
+	private String carNum;
+	private String tireFL;
+
+	
+	public CarStatus( String carNum ){
+		this.carNum = carNum;
+	}
+	
+	public static <E> E getWeightedRandom(Map<E, Double> weights, Random random) { 
+		E result = null;  
+		double bestValue = Double.MAX_VALUE;    
+		for (E element : weights.keySet()) {     
+			double value = -Math.log(random.nextDouble()) / weights.get(element);     
+			if (value < bestValue) {      
+				bestValue = value;
+				result = element; 
+			}  
+		}   return result; 
+	}
+	public String randomRange(int n1, int n2) {  
+		return String.valueOf( (int)(Math.random() * (n2 - n1 + 1)) + n1);
+	} 
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getCarNum() {
+		return carNum;
+	}
+	public void setCarNum(String carNum) {
+		this.carNum = carNum;
+	}
+	public String getTireFL() {
+		Map<String, Double> w = new HashMap<String, Double>();
+		w.put(randomRange(80,100), 80D);
+		w.put(randomRange(70,79), 19.9998D);
+		w.put(randomRange(0,69), 0.0002D);
+		Random rand = new Random();
+		
+		String result = "";
+		
+		if(this.tireFL == null)
+			result = getWeightedRandom(w, rand);
+		else if(Integer.parseInt(this.tireFL) > 69)
+			result = getWeightedRandom(w, rand);
+		else
+			result = this.tireFL;
+		
+		this.tireFL = result;
+
+		return result;
+	}
+	public void setTireFL(String tireFL) {
+		this.tireFL = tireFL;
+	}
+
+}
