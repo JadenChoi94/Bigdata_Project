@@ -720,6 +720,7 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 2019-10-23 11:26:49,416 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\main\resources
 2019-10-23 11:26:49,431 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-23 11:26:49,432 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Bigdata_Project\Final_project\Source\smartmeter_1\smartcarlog-master\src\test\resources
+<<<<<<< HEAD
 2019-10-24 09:42:30,796 [Worker-519] WARN  o.e.r.models.ModelRepository - Failed to download org.eclipse.recommenders:index::zip:0.0.0
 org.eclipse.aether.resolution.ArtifactResolutionException: Could not find artifact org.eclipse.recommenders:index:zip:0.0.0-SNAPSHOT in models (http://download.eclipse.org/recommenders/models/neon/)
 	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
@@ -1944,3 +1945,5 @@ org.eclipse.jdt.core.JavaModelException: bigdata [in SmartMeter] is not on its p
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673) [org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar:na]
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610) [org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar:na]
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519) [org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar:na]
+=======
+>>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7

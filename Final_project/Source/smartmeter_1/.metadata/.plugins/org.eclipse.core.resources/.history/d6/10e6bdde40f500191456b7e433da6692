@@ -1,0 +1,10 @@
+package houseInfo;
+
+public class GenDomain {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

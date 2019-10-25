@@ -1,5 +1,10 @@
 package bigdata;
 
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
 import java.util.Random;
 
 public class MeterStatus {

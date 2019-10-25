@@ -1,0 +1,64 @@
+package com.bigdata2017.smartcar;
+
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+
+public class GenDrivingLogThread extends Thread{
+
+	private String date;
+	PrintWriter printWriter;
+	SmartMeterReal smartmeterreal;
+	private  Random rand =  new Random();
+	
+	public GenDrivingLogThread(String MeterNum, int  customerno, String mac , PrintWriter printWriter) {
+		
+		this.date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+		this.printWriter = printWriter;
+		
+		 smartmeterreal =  new SmartMeterReal( MeterNum , customerno, 0,  mac );
+		
+	}	
+
+	@Override    
+	public void run() {
+			int count = 24 * 60 * 60;	
+//			printWriter.println( "SmartMeter Status Information, Time, MeterNum, Customno, Kw, MacAdd" );
+			
+			try {
+				for(int i = 0; i <= count; i += 1) { // 1초 간격					
+					synchronized( printWriter ){
+						printWriter.println(
+							date +
+							getSecToTime(i)						 + "," +
+							smartmeterreal.getSmartmeterno((int)(Math(rand()%100)) 	 + "," +
+							smartmeterreal.getCustomno()		 + "," +
+							smartmeterreal.getKw(date)			 + "," +
+							smartmeterreal.getMacaddr()
+							);
+					}
+					
+					sleep(1 * 100);
+					
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+	}
+
+	
+	public String getSecToTime(int inSec) {
+		String time = String.valueOf(inSec/3600);
+		if(time.length() == 1) time = "0" + time;
+		String min = String.valueOf(inSec%3600/60);
+		if(min.length() == 1) min = "0" + min;
+		String sec = String.valueOf(inSec%3600%60%60);
+		if(sec.length() == 1) sec = "0" + sec;
+		return time+min+sec;
+	}
+	
+	public int randomRange(int n1, int n2) {  
+		return  (int)(Math.random() * (n2 - n1 + 1)) + n1;
+	} 
+}

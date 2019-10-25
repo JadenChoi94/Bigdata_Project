@@ -1,0 +1,44 @@
+package com.bigdata2017.smartcar;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+public class CarStatus {
+	private String time;
+	private String carNum;
+
+	
+	public CarStatus( String carNum ){
+		this.carNum = carNum;
+	}
+	
+	public static <E> E getWeightedRandom(Map<E, Double> weights, Random random) { 
+		E result = null;  
+		double bestValue = Double.MAX_VALUE;    
+		for (E element : weights.keySet()) {     
+			double value = -Math.log(random.nextDouble()) / weights.get(element);     
+			if (value < bestValue) {      
+				bestValue = value;
+				result = element; 
+			}  
+		}   return result; 
+	}
+	public String randomRange(int n1, int n2) {  
+		return String.valueOf( (int)(Math.random() * (n2 - n1 + 1)) + n1);
+	} 
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getCarNum() {
+		return carNum;
+	}
+	public void setCarNum(String carNum) {
+		this.carNum = carNum;
+	}
+
+
+}

@@ -476,6 +476,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 
 !ENTRY org.eclipse.jface.text 2 0 2019-10-23 11:42:51.880
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.jface.text 2 0 2019-10-24 09:42:29.076
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
@@ -2043,3 +2044,5 @@ Java Model Exception: Java Model Status [bigdata [in SmartMeter] is not on its p
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1006 2019-10-25 16:46:17.970
 !MESSAGE bigdata [in SmartMeter] is not on its project's build path
+=======
+>>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7

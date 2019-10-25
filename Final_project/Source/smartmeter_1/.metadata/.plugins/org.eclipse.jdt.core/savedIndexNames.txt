@@ -1,2 +1,8 @@
 INDEX VERSION 1.130+D:\Bigdata_Project\Final_project\Source\smartmeter_1\.metadata\.plugins\org.eclipse.jdt.core
+<<<<<<< HEAD
 1221287920.index
+=======
+1759438371.index
+1221287920.index
+3925925036.index
+>>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
