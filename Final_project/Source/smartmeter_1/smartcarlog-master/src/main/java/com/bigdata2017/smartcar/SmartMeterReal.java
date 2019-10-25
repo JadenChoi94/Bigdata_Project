@@ -114,7 +114,7 @@ public class SmartMeterReal
         }	
 		
         //시간당임
-		return Math.abs( r.nextDouble()% 0.696090121 + 0.271299909 ) * ( month_value + family_value );			
+		return Math.abs( r.nextDouble()%0.696090121 + 0.271299909 ) * ( month_value + family_value );			
 		/** 
 		 * 가족수와 달 별로 가중치를 더 부가하고 싶다.
 		 * */	
@@ -125,32 +125,8 @@ public class SmartMeterReal
 //				family_value = ;
 //			}else if(monthnum == 2){
 //				family_value = ;
-//			}else if(monthnum == 3){
-//				family_value = ;
-//			}else if(monthnum == 4){
-//				family_value = ;
-//			}else if(monthnum == 5){
-//				family_value = ;
-//			}else if(monthnum == 6){
-//				family_value = ;
-//			}else if(monthnum == 7){
-//				family_value = ;
-//			}else if(monthnum == 8){
-//				family_value = ;
-//			}else if(monthnum == 9){
-//				family_value = ;
-//			}else if(monthnum == 10){
-//				family_value = ;
-//			}else if(monthnum == 11){
-//				family_value = ;
-//			}else {
-//				family_value = ;
-//			}
-//		}
 
-	}
-
-	
+	}	
 	
 	private int random() {
 		// TODO Auto-generated method stub

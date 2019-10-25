@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class GenStatusLog {
 
@@ -29,8 +30,9 @@ public class GenStatusLog {
 			printWriter = new PrintWriter( new FileWriter( logFile ), true );
 			
 			ArrayList<Thread> threads = new ArrayList<Thread>();
+			
 			for(int i = 1; i <= carCount; i++) {
-				Thread t = new GenStatusLogThread( date, genCarId( i ), printWriter );
+				Thread t = new GenStatusLogThread( date, genMeterId( i ), genMacAdd(), printWriter );
 		        t.start();
 		        threads.add(t);
 			}
@@ -51,17 +53,35 @@ public class GenStatusLog {
 		}
 	}
 
-	public static String genCarId(int num) {
+	
+	public static String genMeterId(int num) {
 		String[] carNumPrefix = {"A", "B" , "C" , "D" , "E" , "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}; 
 		String prefixNum = carNumPrefix[randomRange(0, 25)] ;
 
 		DecimalFormat format = new DecimalFormat("0000");
-		String carNum = format.format(num);
+		String meterNum = format.format(num);
 
-		return prefixNum + carNum;
+		return prefixNum + meterNum;
 	}
 
 	public static int randomRange(int n1, int n2) {  
 		return (int)((Math.random() * (n2 - n1 + 1)) + n1);
 	} 
+	
+	public static String genMacAdd() {
+	    Random rand = new Random();
+	    byte[] macAddr = new byte[6];
+	    rand.nextBytes(macAddr);
+
+	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
+
+	    StringBuilder sb = new StringBuilder(18);
+	    for(byte b : macAddr){
+	        if(sb.length() > 0)
+	            sb.append(":");
+	        sb.append(String.format("%02x", b));
+	    }
+	   
+	    return sb.toString();
+	}
 }

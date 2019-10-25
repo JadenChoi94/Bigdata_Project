@@ -1,0 +1,117 @@
+package bigdata;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+import bigdata.GenMeterLogThread;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.io.*;
+
+public class GenMeterLog {
+
+	public static void main(String[] args) {
+		
+		PrintWriter printWriter = null;
+		
+		try {
+			int meterCount = 100;
+			String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+	
+			if(args != null  && args.length > 1) {
+				date = args[0];
+			}
+			if(args != null && args.length > 1) {
+				meterCount = Integer.parseInt(args[1]);
+			}
+			
+			String logFile = "/home/pilot-pjt/working/meter-realtime-log/MeterStatus_" + date + ".log";
+			printWriter = new PrintWriter( new FileWriter( logFile ), true );
+			
+			ArrayList<Thread> threads = new ArrayList<Thread>();
+			
+			for(int i = 1; i <= meterCount; i++) {
+				Thread t = new GenMeterLogThread( date, genMeterId( i ), genMacAdd(), genFamily(), printWriter );
+		        t.start();
+		        threads.add(t);
+			}
+	
+			for(Thread thread : threads){
+				thread.join();
+			}
+			
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if( printWriter != null ) {
+				printWriter.close();
+				System.out.println( "finished" );
+			}
+		}
+	}
+	
+	
+	
+	public static int genFamily(){
+		int[][] indat = new int [100][2];
+		try{
+			File csv = new File("D:/Bigdata_Project/Final_project/data/domain2.csv");
+	        BufferedReader br = new BufferedReader(new FileReader(csv));
+	        String line = "";
+	        int row =0 , i;
+	        int FamCount = 0;
+	        
+	        while ((line = br.readLine()) != null) {
+	            // -1 옵션은 마지막 "," 이후 빈 공백도 읽기 위한 옵션
+	            String[] token = line.split(",", -1);
+	            for(i=0;i<2;i++) {
+	             indat[row][i] = Integer.parseInt(token[i]);
+	             FamCount = indat[row][2];
+	            	}
+	            return FamCount;
+	            
+	            catch (FileNotFoundException e) {
+	                e.printStackTrace();
+	            } 
+	            catch (IOException e) {
+	                e.printStackTrace();
+	            }
+
+	        }
+	}
+        
+	
+	public static String genMeterId(int num) { 
+		String prefixNum = ("H");
+		DecimalFormat format = new DecimalFormat("000");
+		String meterNum = format.format(num);
+
+		return prefixNum + meterNum;
+	}
+	
+	public static String genMacAdd() {
+	    Random rand = new Random();
+	    
+	    byte[] macAddr = new byte[6];
+	    rand.nextBytes(macAddr);
+
+	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
+
+	    StringBuilder sb = new StringBuilder(18);
+	    for(byte b : macAddr){
+	        if(sb.length() > 0)
+	            sb.append(":");
+	        sb.append(String.format("%02x", b));
+	    }
+	   
+	    return sb.toString();
+	}
+
+}
