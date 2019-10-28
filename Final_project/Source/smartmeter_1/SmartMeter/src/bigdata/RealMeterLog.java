@@ -1,8 +1,5 @@
 package bigdata;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,16 +11,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.io.*;
+import java.util.*;
+import java.text.*;
 
 
 public class RealMeterLog {
 
 	public static void main(String[] args) {
 		PrintWriter printWriter = null;
+		
 
 			try {
 					int MeterCount = 100;
-					String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+					String date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+					
 					
 					if(args != null  && args.length > 1) {
 						date = args[0];
@@ -34,10 +35,11 @@ public class RealMeterLog {
 					}
 			
 					ExecutorService exc = Executors.newFixedThreadPool(MeterCount); 
-					int wildDrivercnt = (int)(MeterCount * 0.1);
+					int wildMetercnt = (int)(MeterCount * 0.1);
 			
 					HashSet<Integer> wildMeterSet = new HashSet<Integer>();
-					for(int i=0 ; i < wildDrivercnt; i++) {
+					
+					for(int i=0 ; i < wildMetercnt; i++) {
 						wildMeterSet.add(randomRange(1,MeterCount));
 					}
 			
@@ -48,7 +50,7 @@ public class RealMeterLog {
 			
 					//printWriter = new PrintWriter( System.out, true );	
 					
-					String logFile = "/home/workspace/smartmeter/working/logs/hour/RealTimeMeter_" + date + ".log";
+					String logFile = "/home/workspace/smartmeter/working/logs/sec/MeterSec_" + date + ".log";
 					printWriter = new PrintWriter( new FileWriter( logFile ), true );
 					
 					for(int i = 1; i <= MeterCount; i++) {
@@ -65,7 +67,7 @@ public class RealMeterLog {
 						}
 			
 						itr = wildMeterSet.iterator();
-						exc.submit( new RealMeterLogThread( date, genMeterId( i ), genMacAdd(), genFamily(i), printWriter ) );
+						exc.submit( new RealMeterLogThread( date, genMeterId( i ), genMacAdd(i), genFamily(i), printWriter ) );
 					}
 				} catch( IOException e ) {
 					e.printStackTrace();
@@ -82,7 +84,7 @@ public class RealMeterLog {
 		int[][] indat = new int[100][2];     
 		int famNum = 0;
         try {
-            
+            ///home/workspace/smartmeter/working
             File csv = new File("/home/workspace/smartmeter/working/domain.csv");
             BufferedReader br = new BufferedReader(new FileReader(csv));
             String line = "";
@@ -115,23 +117,50 @@ public class RealMeterLog {
 		return prefixNum + meterNum;
 	}
 	
-	public static String genMacAdd() {
-	    Random rand = new Random();
-	    
-	    byte[] macAddr = new byte[6];
-	    rand.nextBytes(macAddr);
-
-	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
-
-	    StringBuilder sb = new StringBuilder(18);
-	    for(byte b : macAddr){
-	        if(sb.length() > 0)
-	            sb.append(":");
-	        sb.append(String.format("%02x", b));
-	    }
-	   
-	    return sb.toString();
-
+	public static String genMacAdd(int goo) {
+		
+		String[][] indat = new String[100][3];     
+		String Macadd;
+        try {
+        	
+            File csv = new File("/home/workspace/smartmeter/working/domain.csv");
+            BufferedReader br = new BufferedReader(new FileReader(csv));
+            String line = "";
+            int row =0 ,i; 
+            while ((line = br.readLine()) != null) {
+            	
+                String[] token = line.split(",", -1);
+                for(i=1;i<3;i++)    indat[row][i] = (token[i]);                               
+                row++;
+            }
+            br.close(); 
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        Macadd = indat[goo-1][2];  
+        
+	    return Macadd;
 	}
+	
+//	    Random rand = new Random();
+//	    
+//	    byte[] macAddr = new byte[6];
+//	    rand.nextBytes(macAddr);
+//
+//	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
+//
+//	    StringBuilder sb = new StringBuilder(18);
+//	    for(byte b : macAddr){
+//	        if(sb.length() > 0)
+//	            sb.append(":");
+//	        sb.append(String.format("%02x", b));
+//	    }
+//	   
+//	    return sb.toString();
+
 
 }

@@ -1,10 +1,7 @@
 package bigdata;
 
-<<<<<<< HEAD
-=======
 import java.util.HashMap;
 import java.util.Map;
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
 import java.util.Random;
 
 public class MeterStatus {
@@ -61,17 +58,41 @@ public class MeterStatus {
 		double month_value = 0;
 		
 		//(배율)
-		if(monthnum >= 1 && monthnum <= 3){
-			month_value = 1.1;
+		if(monthnum == 1 ){
+			month_value = 1.11065;
 		}
-		else if(monthnum >= 4 && monthnum <= 7){
-			month_value = 0.96;
+		else if(monthnum == 2){
+			month_value = 1.05666;
 		}
-		else if(monthnum >= 8 && monthnum <= 9){
-			month_value = 1.1;
+		else if(monthnum == 3){
+			month_value = 1.01700;
+		}
+		else if(monthnum == 4){
+			month_value = 0.98300;
+		}
+		else if(monthnum == 5){
+			month_value = 0.97167;
+		}
+		else if(monthnum == 6){
+			month_value = 0.94051;
+		}
+		else if(monthnum == 7){
+			month_value = 0.95184;
+		}
+		else if(monthnum == 8){
+			month_value = 1.01700;
+		}
+		else if(monthnum == 9){
+			month_value = 1.05666;
+		}
+		else if(monthnum == 10){
+			month_value = 0.96034;
+		}
+		else if(monthnum == 11){
+			month_value = 0.94901;
 		}
 		else {
-			month_value = 0.97;
+			month_value = 1;
 		}		
 //		(표준편차 * r.nextGaussian()) + 평균	
 		

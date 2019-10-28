@@ -19,27 +19,17 @@ public class GenMeterLogThread extends Thread {
 		synchronized(printWriter){
 			int count = 24 * 60 * 60;
 			
-<<<<<<< HEAD
 		//	printWriter.println("Time"+",MeterNum"+",FamCount"+",MacAdd"+",Kwh");
-=======
-			printWriter.println("Time"+",MeterNum"+",FamCount"+",MacAdd"+",Kwh");
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
 	
 			for(int i = 0; i <= count; i += 3600) { // 3600초 간격 1시간
 				
 				printWriter.println(
 					date +
-<<<<<<< HEAD
+
 					getSecToTime(i)	          + "," + 
 					meterStatus.getMeterNum() + "," + 
 					//meterStatus.getFamily()   + "," + 
 					meterStatus.getMacaddr()  + "," + 
-=======
-					getSecToTime(i)	          + "," + "\t" +
-					meterStatus.getMeterNum() + "," + "\t" +
-					meterStatus.getFamily()   + "," + "\t" +
-					meterStatus.getMacaddr()  + "," + "\t" +
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
 					meterStatus.getKw(date)
 					);
 			}

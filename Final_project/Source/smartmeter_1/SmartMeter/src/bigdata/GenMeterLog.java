@@ -1,89 +1,79 @@
 package bigdata;
 
-<<<<<<< HEAD
-=======
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 import bigdata.GenMeterLogThread;
-<<<<<<< HEAD
 import java.io.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-=======
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
 
 public class GenMeterLog {
 
 	public static void main(String[] args) {
 		
 		PrintWriter printWriter = null;
+		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyyMMdd" );
+		Calendar c = Calendar.getInstance ( );
+		String[] thedate = new String[1461];
+
+		for ( int k = 0; k < 1461; k++ ){
+			c.clear ( );
+			c.set ( 2015, 0, 1 + ( k * 1 ) );
+			java.util.Date d = c.getTime ( );
+			
+			try {
+				int meterCount = 100;
+	//			String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+				thedate[k] = sdf.format ( d );	
+				String date = thedate[k];
+	
+	//			if(args != null  && args.length > 1) {
+	//				date = args[0];
+	//			}
+	//			if(args != null && args.length > 1) {
+	//				meterCount = Integer.parseInt(args[1]);
+	//			}
+				
+	//			D:/Bigdata_Project/Final_project/data
+	//			/home/workspace/smartmeter/working/logs/hour
+				
+	
+				String logFile = "/home/workspace/smartmeter/working/logs/hour/MeterHour_" + date + ".log";
+				printWriter = new PrintWriter( new FileWriter( logFile ), true );
+				
+				ArrayList<Thread> threads = new ArrayList<Thread>();
+				
+				for(int i = 1; i <= meterCount; i++) {
+					Thread t = new GenMeterLogThread( date, genMeterId( i ), genMacAdd(i), genFamily(), printWriter );
+	
+			        t.start();
+			        threads.add(t);
+				}
 		
-		try {
-			int meterCount = 100;
-			String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
-	
-<<<<<<< HEAD
-//			if(args != null  && args.length > 1) {
-//				date = args[0];
-//			}
-//			if(args != null && args.length > 1) {
-//				meterCount = Integer.parseInt(args[1]);
-//			}
-			//D:\Bigdata_Project\Final_project\data
-			//"/home/workspace/smartmeter/working/logs/hour/MeterStatus_" + date + ".log";
-			
-			String logFile = "/home/workspace/smartmeter/working/logs/hour/MeterStatus_" + date + ".log";
-			printWriter = new PrintWriter( new FileWriter( logFile ), true );
-			
-			ArrayList<Thread> threads = new ArrayList<Thread>();			
-			
-			for(int i = 1; i <= meterCount; i++) {				
-				Thread t = new GenMeterLogThread( date, genMeterId( i ), genMacAdd(), genFamily(i), printWriter );
-=======
-			if(args != null  && args.length > 1) {
-				date = args[0];
-			}
-			if(args != null && args.length > 1) {
-				meterCount = Integer.parseInt(args[1]);
-			}
-			
-			String logFile = "/home/pilot-pjt/working/meter-realtime-log/MeterStatus_" + date + ".log";
-			printWriter = new PrintWriter( new FileWriter( logFile ), true );
-			
-			ArrayList<Thread> threads = new ArrayList<Thread>();
-			
-			for(int i = 1; i <= meterCount; i++) {
-				Thread t = new GenMeterLogThread( date, genMeterId( i ), genMacAdd(), genFamily(), printWriter );
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
-		        t.start();
-		        threads.add(t);
-			}
-	
-			for(Thread thread : threads){
-				thread.join();
-			}
-			
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if( printWriter != null ) {
-				printWriter.close();
-				System.out.println( "finished" );
+				for(Thread thread : threads){
+					thread.join();
+				}
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if( printWriter != null ) {
+					printWriter.close();
+					System.out.println( "finished" );
+				}
 			}
 		}
 	}
-	
-<<<<<<< HEAD
 	
 	
 	public static int genFamily(int koo) {
@@ -92,8 +82,8 @@ public class GenMeterLog {
         try {
         	
             //jar로 만들기 전에 경로변경!!!
-        	
-            File csv = new File("/home/workspace/smartmeter/working/domain.csv");
+        	///home/workspace/smartmeter/working
+            File csv = new File("home/workspace/smartmeter/working/domain.csv");
             BufferedReader br = new BufferedReader(new FileReader(csv));
             String line = "";
             int row =0 ,i; 
@@ -116,7 +106,7 @@ public class GenMeterLog {
 	    return famNum;       
 	}
         
-=======
+
 	public static int genFamily(){
 		int famCount = 0;
 		Random rand   = new Random();
@@ -176,7 +166,7 @@ public class GenMeterLog {
 		}
 	    return famCount;
 	}
->>>>>>> 9e0b151a376803217fc285800e3cf968ba377cc7
+
 	
 	public static String genMeterId(int num) { 
 		String prefixNum = ("H");
@@ -186,22 +176,49 @@ public class GenMeterLog {
 		return prefixNum + meterNum;
 	}
 	
-	public static String genMacAdd() {
-	    Random rand = new Random();
-	    
-	    byte[] macAddr = new byte[6];
-	    rand.nextBytes(macAddr);
-
-	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
-
-	    StringBuilder sb = new StringBuilder(18);
-	    for(byte b : macAddr){
-	        if(sb.length() > 0)
-	            sb.append(":");
-	        sb.append(String.format("%02x", b));
-	    }
-	   
-	    return sb.toString();
+	public static String genMacAdd(int goo) {
+		String[][] indat = new String[100][3];     
+		String Macadd;
+        try {
+        	
+            File csv = new File("home/workspace/smartmeter/working/domain.csv");
+            BufferedReader br = new BufferedReader(new FileReader(csv));
+            String line = "";
+            int row =0 ,i; 
+            while ((line = br.readLine()) != null) {
+            	
+                String[] token = line.split(",", -1);
+                for(i=1;i<3;i++)    indat[row][i] = (token[i]);                               
+                row++;
+            }
+            br.close(); 
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        Macadd = indat[goo-1][2];  
+        
+	    return Macadd;
 	}
-
 }
+	    
+//	    Random rand = new Random();
+//	    
+//	    byte[] macAddr = new byte[6];
+//	    rand.nextBytes(macAddr);
+//
+//	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
+//
+//	    StringBuilder sb = new StringBuilder(18);
+//	    for(byte b : macAddr){
+//	        if(sb.length() > 0)
+//	            sb.append(":");
+//	        sb.append(String.format("%02x", b));
+//	    }
+//	   
+//	    return sb.toString();
+
+
