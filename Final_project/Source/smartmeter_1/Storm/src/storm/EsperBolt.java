@@ -34,17 +34,16 @@ public class EsperBolt extends BaseBasicBolt{
 		espService = EPServiceProviderManager.getDefaultProvider(configuration);
 		espService.initialize();
 		
-		int avgOverSpeed = 30;
-		int windowTime  = 30;
+		int avgOverWatt = 0.2  # 일단 임의로 정한거임
+		int windowTime = 1800  # 30분
 		
-		String overSpeedEpl =  "SELECT date, carNumber, speedPedal, breakPedal, "
-								+ "steerAngle, directLight, speed , areaNumber "
-								+ " FROM DriverCarInfoBean.win:time_batch("+windowTime+" sec) "
-								+ " GROUP BY carNumber HAVING AVG(speed) > " + avgOverSpeed;
+		String overWattEpl = "SELECT date, user_id, mac, family, elec"
+		               + "FROM SmartMeterInfoBean.win:time_batch("+windowTime+" sec)"
+		               + "GROUP BY user_id HAVING AVG(elec) >" + avgOverWatt;
 
-		EPStatement driverCarinfoStmt = espService.getEPAdministrator().createEPL(overSpeedEpl);
+		EPStatement smartMeterinfoStmt = espService.getEPAdministrator().createEPL(overWattEpl);
 
-		driverCarinfoStmt.addListener((UpdateListener) new OverSpeedEventListener());
+		smartMeterinfoStmt.addListener((UpdateListener) new OverWattEventListener());
 	}
 
 
@@ -85,14 +84,14 @@ public class EsperBolt extends BaseBasicBolt{
 		declarer.declare(new Fields("date", "car_number"));
 	}
 
-
-	private class OverSpeedEventListener implements UpdateListener
+	// 에스퍼 Bolt 소스2 - EsperBolt.java의 에스퍼 이벤트 함수
+	private class OverWattEventListener implements UpdateListener
 	{
 		@Override
 		public void update(EventBean[] newEvents, EventBean[] oldEvents) {
 			if (newEvents != null) {
 				try {
-					isOverSpeedEvent = true;
+					isOverWattEvent = true;
 				} catch (Exception e) {
 					System.out.println("Failed to Listener Update" + e);
 				} 

@@ -1,0 +1,251 @@
+package bigdata;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import bigdata.GenMeterLogThread;
+import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class GenMeterLog {
+
+	public static void main(String[] args) {
+		
+		PrintWriter printWriter = null;
+		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyyMMdd" );
+		Calendar c = Calendar.getInstance ( );
+		String[] thedate = new String[1826];
+
+		for ( int k = 0; k < 1826; k++ ){
+			c.clear ( );
+			c.set ( 2014, 0, 1 + ( k * 1 ) );
+			java.util.Date d = c.getTime ( );
+			
+			try {
+				int meterCount = 100;
+	//			String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+				
+				thedate[k] = sdf.format ( d );	
+				String date = thedate[k];
+	
+	//			if(args != null  && args.length > 1) {
+	//				date = args[0];
+	//			}
+	//			if(args != null && args.length > 1) {
+	//				meterCount = Integer.parseInt(args[1]);
+	//			}
+				
+	//			D:/Bigdata_Project/Final_project/data
+	//			/home/workspace/smartmeter/working/logs/hour
+				
+	
+				String logFile = "D:/Bigdata_Project/Final_project/data/MeterHour_" + date + ".log";
+				printWriter = new PrintWriter( new FileWriter( logFile ), true );
+				
+				ArrayList<Thread> threads = new ArrayList<Thread>();
+				
+				for(int i = 1; i <= meterCount; i++) {
+					Thread t = new GenMeterLogThread( date, genMeterId( i ), genMacAdd(i), genFamily(i), genFamilyValue(i) printWriter );
+	
+			        t.start();
+			        threads.add(t);
+				}
+		
+				for(Thread thread : threads){
+					thread.join();
+				}
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if( printWriter != null ) {
+					printWriter.close();
+					System.out.println( "finished" );
+				}
+			}
+		}
+	}
+	
+	
+	public static int genFamily(int koo) {
+		int[][] indat = new int[100][2];     
+		int famNum = 0;
+        try {
+        	
+        	///home/workspace/smartmeter/working
+            File csv = new File("D:/Bigdata_Project/Final_project/data/domain.csv");
+            BufferedReader br = new BufferedReader(new FileReader(csv));
+            String line = "";
+            int row =0 ,i; 
+            while ((line = br.readLine()) != null) {
+            	
+                String[] token = line.split(",", -1);
+                for(i=1;i<2;i++)    indat[row][i] = Integer.parseInt(token[i]);                               
+                row++;
+            }
+            br.close(); 
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        famNum = indat[koo-1][1];  
+        
+	    return famNum;       
+	}
+        
+
+	public static double genFamilyValue(int goo){		
+		double famvalue = 0;
+		Random rand   = new Random();
+		
+		int[][] indat = new int[100][2];     
+		int famNum = 0;
+        try {
+        	
+        	///home/workspace/smartmeter/working
+            File csv = new File("D:/Bigdata_Project/Final_project/data/domain.csv");
+            BufferedReader br = new BufferedReader(new FileReader(csv));
+            String line = "";
+            int row =0 ,i; 
+            while ((line = br.readLine()) != null) {
+            	
+                String[] token = line.split(",", -1);
+                for(i=1;i<2;i++)    indat[row][i] = Integer.parseInt(token[i]);                               
+                row++;
+            }
+            br.close(); 
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        famNum = indat[goo-1][1];  
+        
+	    return famvalue;   
+		
+	}
+
+	
+	public static String genMeterId(int num) { 
+		String prefixNum = ("H");
+		DecimalFormat format = new DecimalFormat("000");
+		String meterNum = format.format(num);
+
+		return prefixNum + meterNum;
+	}
+	
+	public static String genMacAdd(int goo) {
+		String[][] indat = new String[100][3];     
+		String Macadd;
+        try {
+        	
+            File csv = new File("D:/Bigdata_Project/Final_project/data/domain.csv");
+            BufferedReader br = new BufferedReader(new FileReader(csv));
+            String line = "";
+            int row =0 ,i; 
+            while ((line = br.readLine()) != null) {
+            	
+                String[] token = line.split(",", -1);
+                for(i=1;i<3;i++)    indat[row][i] = (token[i]);                               
+                row++;
+            }
+            br.close(); 
+        } 
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        Macadd = indat[goo-1][2];  
+        
+	    return Macadd;
+	}
+}
+	    
+//	    Random rand = new Random();
+//	    
+//	    byte[] macAddr = new byte[6];
+//	    rand.nextBytes(macAddr);
+//
+//	    macAddr[0] = (byte)(macAddr[0] & (byte)254);  
+//
+//	    StringBuilder sb = new StringBuilder(18);
+//	    for(byte b : macAddr){
+//	        if(sb.length() > 0)
+//	            sb.append(":");
+//	        sb.append(String.format("%02x", b));
+//	    }
+//	   
+//	    return sb.toString();
+
+//
+//int a[] = new int[100];
+//
+//for(int i=0; i<100; i++) 
+//{
+//	a[i] = rand.nextInt(100)+1;
+//	for(int j=0; j<i; j++)
+//	{
+//		if(a[i] == a[j])
+//		{
+//			i--;
+//		}
+//	}				
+//}
+//
+//for (int b=0; b < 100; b++)
+//{
+//	//1명일때 
+//    if(a[b] >=0 && a[b] <= 13) {
+//    	famvalue = ((11.16406573*rand.nextGaussian())+206);
+//    }
+//    //2명일때
+//    else if (a[b] > 13 && a[b] <= 41){
+//    	famvalue = ((16.39197882*rand.nextGaussian())+289);
+//    }
+//    //3명일때
+//    else if (a[b] > 41 && a[b] <= 65){
+//    	famvalue = ((16.88710284*rand.nextGaussian())+321);
+//    }
+//    //4명 일때
+//    else if (a[b] > 65 && a[b] <= 89){
+//    	famvalue = ((17.90949469*rand.nextGaussian())+338);
+//    }
+//    //5명 일때
+//    else if (a[b] > 89 && a[b] <= 95){
+//    	famvalue = ((19.48348174*rand.nextGaussian())+355);
+//    }
+//    //6명 일때
+//    else if (a[b] == 96){
+//    	famvalue = ((18.54887075*rand.nextGaussian())+392);
+//    }
+//    //7명 일때
+//    else if (a[b] == 97){
+//    	famvalue = ((19.36022164*rand.nextGaussian())+388);
+//    }
+//    //8명 일때
+//    else if (a[b] == 98) {
+//    	famvalue = ((25.99111153*rand.nextGaussian())+464);
+//    }
+//    //9명 일때
+//    else {
+//    	famvalue = ((1*rand.nextGaussian())+1000);
+//    }	 
+//}
+//return famvalue;

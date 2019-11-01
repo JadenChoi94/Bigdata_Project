@@ -27,14 +27,14 @@ public  class RedisBolt extends AbstractRedisBolt {
 	public void execute(Tuple input) {
 
 		String date = input.getStringByField("date");
-		String car_number = input.getStringByField("car_number");
+		String user_id = input.getStringByField("user_id");
 
 		JedisCommands jedisCommands = null;
 
 		try {
 
 			jedisCommands = getInstance();
-			jedisCommands.sadd(date, car_number);
+			jedisCommands.sadd(date, user_id);
 			
 			jedisCommands.expire(date, 604800);
 

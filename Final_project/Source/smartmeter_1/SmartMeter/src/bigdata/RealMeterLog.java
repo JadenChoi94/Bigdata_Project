@@ -2,14 +2,8 @@ package bigdata;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -19,12 +13,20 @@ public class RealMeterLog {
 
 	public static void main(String[] args) {
 		PrintWriter printWriter = null;
+		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyyMMdd" );
+		Calendar c = Calendar.getInstance ( );
+		String[] thedate = new String[1826];
 		
-
+		for ( int k = 0; k < 1826; k++ ){
+			c.clear ( );
+			c.set ( 2014, 0, 1 + ( k * 1 ) );
+			java.util.Date d = c.getTime ( );
+			
 			try {
 					int MeterCount = 100;
-					String date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
-					
+//					String date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+					thedate[k] = sdf.format ( d );	
+					String date = thedate[k];					
 					
 					if(args != null  && args.length > 1) {
 						date = args[0];
@@ -73,6 +75,7 @@ public class RealMeterLog {
 					e.printStackTrace();
 				}
 			}
+	}
 
 	
 	public static int randomRange(int n1, int n2) {
@@ -107,6 +110,7 @@ public class RealMeterLog {
         
 	    return famNum;       
 	}
+	
         
 	
 	public static String genMeterId(int num) { 
@@ -146,7 +150,7 @@ public class RealMeterLog {
 	    return Macadd;
 	}
 	
-//	    Random rand = new Random();
+//	    Random rand = new Random();2
 //	    
 //	    byte[] macAddr = new byte[6];
 //	    rand.nextBytes(macAddr);

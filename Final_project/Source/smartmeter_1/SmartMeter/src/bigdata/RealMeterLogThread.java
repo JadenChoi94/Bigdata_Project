@@ -9,7 +9,7 @@ public class RealMeterLogThread extends Thread{
 	public RealMeterLogThread( String date, String meterNum, String Macaddr, int Family, PrintWriter printWriter ) {
 		this.date = date;
 		this.printWriter = printWriter;
-		realmeterStatus  = new RealMeterStatus( meterNum, Macaddr, Family );
+		realmeterStatus  = new RealMeterStatus( meterNum, Macaddr, Family);
 	}
 
 	@Override    

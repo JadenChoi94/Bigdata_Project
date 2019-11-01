@@ -11,7 +11,7 @@ public class GenMeterLogThread extends Thread {
 	public GenMeterLogThread( String date, String meterNum, String Macaddr, int Family, PrintWriter printWriter ) {
 		this.date = date;
 		this.printWriter = printWriter;
-		meterStatus  = new MeterStatus( meterNum, Macaddr, Family );
+		meterStatus  = new MeterStatus( meterNum, Macaddr, Family);
 	}
 
 	@Override    

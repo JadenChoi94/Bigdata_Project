@@ -15,23 +15,10 @@ import java.util.Random;
 	public class test {
 	
 		public static void main(String[] args) {	
-			 
-			SimpleDateFormat sdf = new SimpleDateFormat ( "yyyyMMdd" );
-			Calendar c = Calendar.getInstance ( );
-			String[] thedate = new String[1461];
-			
-			for ( int i = 0; i < 1461; i++ )
-			{
-			c.clear ( );
-			c.set ( 2015, 0, 1 + ( i * 1 ) );
-			java.util.Date d = c.getTime ( );
-			thedate[i] = sdf.format ( d );
-			
-			
-			
-			System.out.println ( thedate[i] );
+
+			Random rand   = new Random();
+			System.out.println ( ((10.16406573*rand.nextGaussian())+206)/720 );
 			} 
-	}
 }
 		
 	

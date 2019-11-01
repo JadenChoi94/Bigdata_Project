@@ -52,7 +52,7 @@ public class SmartCarDriverTopology {
 	private static StormTopology makeTopology() {
 
 		String zkHost = "server02.hadoop.com:2181";
-		TopologyBuilder driverCarTopologyBuilder = new TopologyBuilder();
+		TopologyBuilder RealtimeMeterTopologyBuilder = new TopologyBuilder();
 		
 		// Spout Bolt
 		BrokerHosts brkBost = new ZkHosts(zkHost);
