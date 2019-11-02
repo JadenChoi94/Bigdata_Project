@@ -26,6 +26,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="D:\Bigdata_Project\Final_project\Source\smartmeter_1\SmartMeter_쓰레드100개"/>
 			<item value="D:\bigdata-smartcar\workspace\bigdata.smartcar.redis\src\main\java\com\wikibook\bigdata\smartcar\redis"/>
 			<item value="D:\bigdata-smartcar\workspace\bigdata.smartcar.storm\src\main\java\com\wikibook\bigdata\smartcar\storm"/>
 			<item value="D:\bigdata-smartcar\CH05\예제5.5~5.7"/>

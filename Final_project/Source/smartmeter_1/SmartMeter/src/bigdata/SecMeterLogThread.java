@@ -26,7 +26,7 @@ public class SecMeterLogThread extends Thread{
 			for ( int k = 0; k < 8; k++ )
 			{
 				c.clear ( );
-				c.set ( 2019, 7, 1 + ( k * 1 ) );
+				c.set ( 2019, 7, 10 + ( k * 1 ) );
 				java.util.Date d = c.getTime ( );				
 				thedate[k] = sdf.format ( d );	
 				String datedate = thedate[k];
