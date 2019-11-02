@@ -13,68 +13,40 @@ public class RealMeterLog {
 
 	public static void main(String[] args) {
 		PrintWriter printWriter = null;
-		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyyMMdd" );
-		Calendar c = Calendar.getInstance ( );
-		String[] thedate = new String[1826];
-		
-		for ( int k = 0; k < 1826; k++ ){
-			c.clear ( );
-			c.set ( 2014, 0, 1 + ( k * 1 ) );
-			java.util.Date d = c.getTime ( );
-			
+					
 			try {
 					int MeterCount = 100;
-//					String date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
-					thedate[k] = sdf.format ( d );	
-					String date = thedate[k];					
+					String date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+									
+			
+					///home/workspace/smartmeter/working/logs/sec	
+					//D:/Bigdata_Project/Final_project/data
 					
-					if(args != null  && args.length > 1) {
-						date = args[0];
-					}
-					
-					if(args != null && args.length > 1) {
-						MeterCount = Integer.parseInt(args[1]);
-					}
-			
-					ExecutorService exc = Executors.newFixedThreadPool(MeterCount); 
-					int wildMetercnt = (int)(MeterCount * 0.1);
-			
-					HashSet<Integer> wildMeterSet = new HashSet<Integer>();
-					
-					for(int i=0 ; i < wildMetercnt; i++) {
-						wildMeterSet.add(randomRange(1,MeterCount));
-					}
-			
-					Iterator<Integer> itr = wildMeterSet.iterator();
-			
-					boolean isWild = false;
-					int tmpWildCarNum;
-			
-					//printWriter = new PrintWriter( System.out, true );	
-					
-					String logFile = "/home/workspace/smartmeter/working/logs/sec/MeterSec_" + date + ".log";
+					String logFile = "/home/workspace/smartmeter/working/logs/sec/MeterMin_" + date + ".log";
 					printWriter = new PrintWriter( new FileWriter( logFile ), true );
+					String datedate = "";
+					ArrayList<Thread> threads = new ArrayList<Thread>();
 					
 					for(int i = 1; i <= MeterCount; i++) {
-						
-						while(itr.hasNext()) {
-							tmpWildCarNum = itr.next();
 							
-							if( tmpWildCarNum == i ) {
-								isWild = true;
-								break;
-							} else {
-								isWild = false;
-							}
+						
+						Thread t =  new RealMeterLogThread( datedate, genMeterId( i ), genMacAdd(i), genFamily(i), printWriter );
+						t.start();
+				        threads.add(t);
 						}
-			
-						itr = wildMeterSet.iterator();
-						exc.submit( new RealMeterLogThread( date, genMeterId( i ), genMacAdd(i), genFamily(i), printWriter ) );
+					for(Thread thread : threads){
+						thread.join();
 					}
-				} catch( IOException e ) {
+				} catch (InterruptedException e) {
 					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					if( printWriter != null ) {
+						printWriter.close();
+						System.out.println( "finished" );
+					}
 				}
-			}
 	}
 
 	

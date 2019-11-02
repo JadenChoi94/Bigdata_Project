@@ -20,22 +20,11 @@ public class GenMeterLog {
 	public static void main(String[] args) {
 		
 		PrintWriter printWriter = null;
-		SimpleDateFormat sdf = new SimpleDateFormat ( "yyyyMMdd" );
-		Calendar c = Calendar.getInstance ( );
-		String[] thedate = new String[1826];
-
-		for ( int k = 0; k < 1826; k++ ){
-			c.clear ( );
-			c.set ( 2014, 0, 1 + ( k * 1 ) );
-			java.util.Date d = c.getTime ( );
 			
 			try {
 				int meterCount = 100;
-	//			String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+				String date =  new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
 				
-				thedate[k] = sdf.format ( d );	
-				String date = thedate[k];
-	
 	//			if(args != null  && args.length > 1) {
 	//				date = args[0];
 	//			}
@@ -71,7 +60,7 @@ public class GenMeterLog {
 				if( printWriter != null ) {
 					printWriter.close();
 					System.out.println( "finished" );
-				}
+				
 			}
 		}
 	}
