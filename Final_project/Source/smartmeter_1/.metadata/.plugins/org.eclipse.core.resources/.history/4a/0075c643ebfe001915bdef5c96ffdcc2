@@ -1,0 +1,130 @@
+package bigdata;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+
+public class SecMeterLog {
+
+	public static void main(String[] args) {
+		PrintWriter printWriter = null;
+		
+				try {
+						int MeterCount = 100;
+						String date = new SimpleDateFormat( "yyyyMMdd" ).format( new Date( System.currentTimeMillis() ) );
+											
+						///home/workspace/smartmeter/working/logs/sec	
+						//D:/Bigdata_Project/Final_project/data
+						
+						String logFile = "D:/Bigdata_Project/Final_project/data/SecMeter_" + date + ".log";
+						printWriter = new PrintWriter( new FileWriter( logFile ), true );
+						
+						ArrayList<Thread> threads = new ArrayList<Thread>();
+						
+						String datedate = "";										
+						
+						for(int i = 1; i <= MeterCount; i++) {
+							
+							Thread t = new SecMeterLogThread( datedate, genMeterId( i ), genMacAdd(i), genFamily(i), printWriter );
+					        
+							t.start();
+					        threads.add(t);
+						}
+						
+						for(Thread thread : threads){
+							thread.join();
+						}
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					} finally {
+						if( printWriter != null ) {
+							printWriter.close();
+							System.out.println( "finished" );
+						
+					}
+				}
+	}
+		
+		public static int randomRange(int n1, int n2) {
+			return (int)((Math.random() * (n2 - n1 + 1)) + n1);
+		}
+		
+		
+		public static int genFamily(int koo) {
+			int[][] indat = new int[100][2];     
+			int famNum = 0;
+		    try {
+		        ///home/workspace/smartmeter/working
+		        File csv = new File("D:/Bigdata_Project/Final_project/data/domain.csv");
+		        BufferedReader br = new BufferedReader(new FileReader(csv));
+		        String line = "";
+		        int row =0 ,i; 
+		        while ((line = br.readLine()) != null) {
+		        	
+		            String[] token = line.split(",", -1);
+		            for(i=1;i<2;i++)    indat[row][i] = Integer.parseInt(token[i]);                               
+		            row++;
+		        }
+		        br.close(); 
+		    } 
+		    catch (FileNotFoundException e) {
+		        e.printStackTrace();
+		    } 
+		    catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		    famNum = indat[koo-1][1];  
+		    
+		    return famNum;       
+		}		
+		    
+		
+		public static String genMeterId(int num) { 
+			String prefixNum = ("H");
+			DecimalFormat format = new DecimalFormat("000");
+			String meterNum = format.format(num);
+		
+			return prefixNum + meterNum;
+		}
+		
+		public static String genMacAdd(int goo) {
+			
+			String[][] indat = new String[100][3];     
+			String Macadd;
+		    try {
+		    	
+		        File csv = new File("D:/Bigdata_Project/Final_project/data/domain.csv");
+		        BufferedReader br = new BufferedReader(new FileReader(csv));
+		        String line = "";
+		        int row =0 ,i; 
+		        while ((line = br.readLine()) != null) {
+		        	
+		            String[] token = line.split(",", -1);
+		            for(i=1;i<3;i++)    indat[row][i] = (token[i]);                               
+		            row++;
+		        }
+		        br.close(); 
+		    } 
+		    catch (FileNotFoundException e) {
+		        e.printStackTrace();
+		    } 
+		    catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		    Macadd = indat[goo-1][2];  
+		    
+		    return Macadd;
+		}
+
+	}

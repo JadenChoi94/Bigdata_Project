@@ -16,7 +16,7 @@ tsdiag(auto.arima(diff(log(timeSeriesObj))))
 fit <- arima(log(timeSeriesObj), c(4, 0, 0), 
              seasonal = list(order = c(0, 1, 1),period = 12))
 
-pred <- predict(fit, n.ahead = 5*12)# 2년 예측
+pred <- predict(fit, n.ahead = 1*12)# 1년 예측
 
 ts.plot(timeSeriesObj,2.718^pred$pred, log = "y", lty = c(1,3))
 
