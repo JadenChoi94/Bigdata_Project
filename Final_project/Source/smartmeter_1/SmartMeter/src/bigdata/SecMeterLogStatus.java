@@ -9,7 +9,10 @@ public class SecMeterLogStatus {
 	private String Macaddr;
 	private int Family;
 	private double FamValue;
+<<<<<<< HEAD
 	private double Timevalue;
+=======
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 	
 	public SecMeterLogStatus( String meterNum, String Macaddr, int Family){
 		this.meterNum = meterNum;
@@ -35,6 +38,10 @@ public class SecMeterLogStatus {
 	}
 	
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 	public String getMacaddr() {
 		return Macaddr;
 	}
@@ -50,6 +57,7 @@ public class SecMeterLogStatus {
 		this.Family = family;
 	}
 	
+<<<<<<< HEAD
 	
 	public double getTimevalue(){
 		double timevalue = 0;
@@ -73,6 +81,8 @@ public class SecMeterLogStatus {
 	
 	
 	
+=======
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 	public double getFamValue() {
 		Random rand     = new Random();
         double famvalue = 0;
@@ -91,8 +101,13 @@ public class SecMeterLogStatus {
 	      	famvalue = (((16.88710284*rand.nextGaussian())+321)/3600);
 	      }
 	      //4명 일때
+<<<<<<< HEAD
 	      else if (Famcnt == 4){	    	
 	      	famvalue = (((18.90949469*rand.nextGaussian())+338)/3600);
+=======
+	      else if (Famcnt == 4){
+	      	famvalue = (((17.90949469*rand.nextGaussian())+338)/3600);
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 	      }
 	      //5명 일때
 	      else if (Famcnt == 5){
@@ -151,8 +166,12 @@ public class SecMeterLogStatus {
 			month_value = 0.95184;
 		}
 		else if(monthnum == 8){
+<<<<<<< HEAD
 	    	double you = getTimevalue();
 			month_value = (1.01700 * you);
+=======
+			month_value = 1.01700;
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 		}
 		else if(monthnum == 9){
 			month_value = 1.05666;

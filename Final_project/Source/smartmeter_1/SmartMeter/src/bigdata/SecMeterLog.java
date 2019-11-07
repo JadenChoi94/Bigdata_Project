@@ -43,19 +43,29 @@ public class SecMeterLog {
 						for(Thread thread : threads){
 							thread.join();
 						}
+<<<<<<< HEAD
 						
+=======
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					} catch (IOException e) {
 						e.printStackTrace();
 					} finally {
+<<<<<<< HEAD
 						
+=======
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 						if( printWriter != null ) {
 							printWriter.close();
 							System.out.println( "finished" );
 						
 					}
+<<<<<<< HEAD
 			}
+=======
+				}
+>>>>>>> ab5a0988e7e93496fa694fc9e0bd709f9fd36ac8
 	}
 		
 		public static int randomRange(int n1, int n2) {
