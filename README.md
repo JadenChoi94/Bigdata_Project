@@ -1,4 +1,5 @@
 ![솔루션아키텍처](https://user-images.githubusercontent.com/38060979/125167466-ad820980-e1db-11eb-91f5-1ae3876e1b57.png)
+![시스템아키텍처](https://user-images.githubusercontent.com/38060979/125167479-c12d7000-e1db-11eb-911c-0d2389f242b1.png)
 
 
 # 팀명: 죽음의 불'4'조
