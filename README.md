@@ -1,3 +1,6 @@
+![솔루션아키텍처](https://user-images.githubusercontent.com/38060979/125167466-ad820980-e1db-11eb-91f5-1ae3876e1b57.png)
+
+
 # 팀명: 죽음의 불'4'조
 ## 팀원: 오진영, 이희철, 최준혁
 
